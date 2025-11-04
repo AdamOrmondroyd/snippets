@@ -1,0 +1,11 @@
+{
+    "aligned equation": {
+        "prefix": ["aligned"],
+        "body": ["\\begin{equation} \\label{eq:${1:label}}",
+                 "    \\begin{aligned}",
+                 "        $0",
+                 "    \\end{aligned}",
+                 "\\end{equation}"],
+        "description": "Aligned equation environment."
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "import anesthetic": {
+        "prefix": ["from anesthetic import read_chains"],
+        "body": ["from anesthetic import read_chains"],
+        "description": "Import read_chains from anesthetic."
+    },
+    "import matplotlib": {
+        "prefix": ["mpl"],
+        "body": ["from matplotlib import pyplot as plt"],
+        "description": "Import pyplot from matplotlib."
+    },
+    "import smplotlib": {
+        "prefix": ["smpl"],
+        "body": ["from matplotlib import pyplot as plt",
+                  "import smplotlib as smpl"],
+        "description": "Import matplotlib and smplotlib."
+    },
+    "print variable f-string": {
+        "prefix": ["printf"],
+        "body": ["print(f\"{$0=}\")"],
+        "description": "Print variable using f-string."
+    }
+}

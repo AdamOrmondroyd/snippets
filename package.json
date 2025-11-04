@@ -1,0 +1,19 @@
+{
+    "name": "Adam's snippets",
+    "contributes": {
+        "snippets": [
+            {
+                "language": [
+                    "tex"
+                ],
+                "path": "./latex.json"
+            },
+            {
+                "language": [
+                    "python"
+                ],
+                "path": "./python.json"
+            }
+        ]
+    }
+}
