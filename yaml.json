@@ -8,6 +8,7 @@
             "  push:",
             "    branches: [ ${1|main,master|} ]",
             "  pull_request:",
+            "  workflow_dispatch:",
             "",
             "jobs:",
             "  lint:",
@@ -37,6 +38,6 @@
             "    - name: Test with pytest",
             "      run: uv run pytest"
         ],
-        "description": "GitHub Actions workflow with separate lint and test jobs: uvx ruff check on a bare checkout, and uv sync --locked + pytest across a python matrix. pull_request is left unfiltered on purpose: its branches: filter matches the base branch, so a filter would skip every PR in a stack above the bottom one."
+        "description": "GitHub Actions workflow with separate lint and test jobs, both using the lockfile's ruff: lint syncs without the project (so it needs no history), test syncs fully across a python matrix. pull_request is left unfiltered on purpose: its branches: filter matches the base branch, so a filter would skip every PR in a stack above the bottom one."
     }
 }
