@@ -2,7 +2,7 @@
     "uv install and pytest": {
         "prefix": ["uvci"],
         "body": [
-            "name: lint and test",
+            "name: CI",
             "",
             "on:",
             "  push:",
