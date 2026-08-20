@@ -1,0 +1,37 @@
+{
+    "uv install and pytest": {
+        "prefix": ["uvci"],
+        "body": [
+            "name: uv install and pytest",
+            "",
+            "on:",
+            "  push:",
+            "    branches: [ ${1|main,master|} ]",
+            "  pull_request:",
+            "",
+            "jobs:",
+            "  build:",
+            "",
+            "    runs-on: ubuntu-latest",
+            "    strategy:",
+            "      matrix:",
+            "        python-version: [\"${2:3.14}\"]",
+            "",
+            "    steps:",
+            "    - uses: actions/checkout@v7",
+            "      with:",
+            "        fetch-depth: 0  # full history so setuptools_scm can derive the version",
+            "    - name: Install uv and set up python",
+            "      uses: astral-sh/setup-uv@v8.2.0",
+            "      with:",
+            "        python-version: \\${{ matrix.python-version }}",
+            "    - name: Install the project",
+            "      run: uv sync --locked",
+            "    - name: Test with pytest",
+            "      run: uv run pytest",
+            "    - name: Lint with ruff",
+            "      run: uv run ruff check"
+        ],
+        "description": "GitHub Actions workflow: uv sync --locked, then pytest and ruff. pull_request is left unfiltered on purpose: its branches: filter matches the base branch, so a filter would skip every PR in a stack above the bottom one."
+    }
+}

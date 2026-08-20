@@ -13,6 +13,24 @@
                     "python"
                 ],
                 "path": "./python.json"
+            },
+            {
+                "language": [
+                    "toml"
+                ],
+                "path": "./toml.json"
+            },
+            {
+                "language": [
+                    "yaml"
+                ],
+                "path": "./yaml.json"
+            },
+            {
+                "language": [
+                    "gitignore"
+                ],
+                "path": "./gitignore.json"
             }
         ]
     }

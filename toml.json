@@ -1,0 +1,32 @@
+{
+    "uv pyproject": {
+        "prefix": ["pyproject"],
+        "body": [
+            "[project]",
+            "name = \"${1:package}\"",
+            "dynamic = [\"version\"]",
+            "description = \"${2:description}\"",
+            "readme = \"README.md\"",
+            "requires-python = \">=${3:3.14}\"",
+            "dependencies = [",
+            "    $0",
+            "]",
+            "",
+            "[build-system]",
+            "requires = [\"setuptools_scm>=8\"]",
+            "",
+            "[tool.setuptools_scm]",
+            "version_file = \"$1/_version.py\"",
+            "",
+            "[project.optional-dependencies]",
+            "dev = [\"pytest\", \"pytest-cov\", \"ruff\"]",
+            "",
+            "[dependency-groups]",
+            "dev = [\"$1[dev]\"]",
+            "",
+            "[tool.setuptools.packages.find]",
+            "include = [\"$1\"]"
+        ],
+        "description": "pyproject.toml with setuptools_scm versioning. The dev extra is what pip installs; the dependency-group points at it so bare `uv sync` picks it up too."
+    }
+}
